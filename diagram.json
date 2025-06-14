@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Nafim Islam",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -148.76, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 89.54,
+      "left": -9.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -106.9, "left": -57.8, "attrs": {} },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot2",
+      "top": 106.6,
+      "left": -260.5,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v-67.2", "h-67.2" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-76.8", "h-182.4" ] ],
+    [ "oled1:SCL", "esp:22", "green", [ "v-48", "h-86.1" ] ],
+    [ "oled1:SDA", "esp:21", "green", [ "v-19.2", "h-95.93" ] ],
+    [ "pot2:VCC", "esp:3V3", "red", [ "v0.8", "h28.8", "v-105.6" ] ],
+    [ "pot2:SIG", "esp:VP", "green", [ "h38.4", "v-95.6" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v9.6", "h-144.8", "v57.6" ] ],
+    [ "pot1:SIG", "esp:VN", "green", [ "v19.2", "h-154", "v76.8" ] ],
+    [ "pot2:GND", "esp:GND.1", "black", [ "v10.8", "h44.45" ] ]
+  ],
+  "dependencies": {}
+}
